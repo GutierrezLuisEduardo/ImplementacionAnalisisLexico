@@ -58,7 +58,7 @@ q25 \--\> q25 : a
 @enduml
 ```
 
-![NFA's][https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/NFA%20-%20Diagram.png]  
+![NFA's](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/NFA%20-%20Diagram.png)
 Fig.2 Dos NFA: aquel que representa ocurrencias de ‘ab1’ y ‘1ba’ (izquierda), y terminación de ‘ba’ (derecha)
 
 ## **Implementación de una expresión regular equivalente**
@@ -79,6 +79,6 @@ El arreglo con las cadenas de prueba contiene 20 cadenas, las 13 primeras son er
 
 A continuación el resultado de la ejecución del código:
 
-![Resultado de ejecucuón del código][https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/Resultados.png]
+![Resultado de ejecucuón del código](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/Resultados.png)
 
 ## **Análisis de complejidad**
