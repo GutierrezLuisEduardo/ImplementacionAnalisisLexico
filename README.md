@@ -17,7 +17,7 @@ Y un conjunto de reglas, tal que cualquier combinación válida siempre termine 
 ## **Modelado del lenguaje**
 
 A continuación los *NFA* que representan las reglas del lenguaje mencionado, fueron hechos con *plantUML*, (he decidido modelar de esta manera por la facilidad que permiten estos autómatas) utilizando el siguiente código: 
-
+```PlantUML
 *@startuml*
 
 *StateAB11BA \--\> q0*  
@@ -56,6 +56,7 @@ A continuación los *NFA* que representan las reglas del lenguaje mencionado, fu
 *q25 \--\> q25 : a*
 
 *@enduml*
+```
 
 ![][image1]  
 Fig.2 Dos NFA: aquel que representa ocurrencias de ‘ab1’ y ‘1ba’ (izquierda), y terminación de ‘ba’ (derecha)
