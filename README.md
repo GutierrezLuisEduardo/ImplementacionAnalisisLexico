@@ -76,7 +76,7 @@ Estas pruebas de validez están incluidas dentro del archivo *tests.py*, mismo q
 
 ## **Resultados de implementación**
 
-El arreglo con las cadenas de prueba contiene 20 cadenas, las 13 primeras son erróneas y las últimas 7 son válidas.
+El arreglo con las cadenas de prueba contiene 20 cadenas, las 13 primeras son erróneas (era lo planeado) y las últimas 7 son válidas.
 
 A continuación el resultado de la ejecución del código:
 
