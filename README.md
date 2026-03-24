@@ -20,40 +20,40 @@ A continuación los *NFA* que representan las reglas del lenguaje mencionado, fu
 ```PlantUML
 @startuml
 
-StateAB11BA \--\> q0
+StateAB11BA --> q0
 StateAB11BA : Debe contener al menos una ocurrencia de 'ab1' o '1ba'
 
 ' Lee cualquier pregijo  
-q0 \--\> q0 : a  
-q0 \--\> q0 : b  
-q0 \--\> q0 : 1
+q0 --> q0 : a  
+q0 --> q0 : b  
+q0 --> q0 : 1
 
 ' Intento de detectar "ab1"
-q0 \--\> q1 : a  
-q1 \--\> q2 : b  
-q2 \--\> qf : 1
+q0 --> q1 : a  
+q1 --> q2 : b  
+q2 --> qf : 1
 
 ' Intento de detectar "1ba"
-q0 \--\> q3 : 1  
-q3 \--\> q4 : b  
-q4 \--\> qf : a
+q0 --> q3 : 1  
+q3 --> q4 : b  
+q4 --> qf : a
 
 ' Encontró alguno  
-qf \--\> qf : a  
-qf \--\> qf : b  
-qf \--\> qf : 1
+qf --> qf : a  
+qf --> qf : b  
+qf --> qf : 1
 
-StateBA \--\> q24 
+StateBA --> q24 
 StateBA : Debe terminar siempre con 'ba'
 
 ' Cualquier prefijo
-q24 \--\> q24 : a  
-q24 \--\> q24 : b  
-q24 \--\> q24 : 1
+q24 --> q24 : a  
+q24 --> q24 : b  
+q24 --> q24 : 1
 
 ' Terminación en 'ba'
-q24 \--\> q25 : b  
-q25 \--\> q25 : a
+q24 --> q25 : b  
+q25 --> q25 : a
 
 @enduml
 ```
