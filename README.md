@@ -59,6 +59,7 @@ q25 \--\> q25 : a
 ```
 
 ![NFA's](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/NFA%20-%20Diagram.png)
+
 Fig.2 Dos NFA: aquel que representa ocurrencias de ‘ab1’ y ‘1ba’ (izquierda), y terminación de ‘ba’ (derecha)
 
 ## **Implementación de una expresión regular equivalente**
