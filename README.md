@@ -1,6 +1,6 @@
 **Evidencia Implementación de Análisis Léxico (Autómata y Expresión Regular)**
 
-| All possible combinations of | Rules |
+| Alfabeto | Reglas |
 | ----- | :---: |
 | ab1 | al menos una ocurrencia de 'ab1' or '1ba' |
 |  | terminación 'ba' |
@@ -15,11 +15,10 @@ Se tiene un lenguaje con alfabeto:
 Y un conjunto de reglas, tal que cualquier combinación válida siempre termine con ‘*ba*’ y contenga al menos una concurrencia de ‘*ab1*’ o ‘*1ba*’.
 
 ## **Modelado del lenguaje**
-
-A continuación el *NFA* que representa las reglas del lenguaje mencionado, fue hecho con *plantUML*. Previo a conseguir un DFA, he decidido modelar un NFA puesto que es más sencillo de plasmar. A continuación, el código de PlantUML.
+Previo a conseguir un _DFA_, se modeló un _NFA_ por la facilidad que confiere al momento de plasmar estados y transiciones entre estos. A continuación un _NFA_ que corresponde a las reglas del lenguaje, hecho con _plantUML_.
 
 <details>
-  <summary>Desplegar código</summary>
+  <summary>Desplegar código de PlantUML</summary>
 
 ```PlantUML
 @startuml
@@ -68,9 +67,113 @@ stateDiagram {
 
 ![NFA](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/NFA.png)
 
-<sub>Fig.2 NFA que representa al menos una ocurrencias de ‘ab1’ o ‘1ba’ y terminación de ‘ba’ de una cadena</sub>
+<sub style="align: center; text-align: center">Fig.2 NFA que representa al menos una ocurrencia de ‘ab1’ o ‘1ba’ y terminación de ‘ba’ de una cadena</sub>
 
+Con el _NFA_ terminado, procedió derivar (partiendo de su tabla de transiciones) las transiciones y nuevos estados que constituyen al DFA equivalente. Para ello se utilizó la técnica      
 
+A continuación, el diagrama del DFA, correspondiente con las reglas del lenguaje y el NFA.
+
+<details>
+  <summary>Desplegar código de PlantUML</summary>
+
+```PlantUML
+@startuml
+left to right direction 
+scale 2048 width
+
+skinparam nodesep 80
+skinparam ranksep 90
+
+note "DFA: Al menos una ocurrencia de 'ab1' o '1ba' y siempre fin en 'ab'" as nota
+
+[*] -down-> A
+
+' G, I, K, L, M, N
+state G <<end>>
+note left of G : G
+state I <<end>> : estado I
+note left of I : I
+state K <<end>> : estado K
+note left of K : K
+state L <<end>> : estado L
+note left of L : L
+state M <<end>> : estado M
+note left of M : M
+state N <<end>> : estado N
+note left of N : N
+
+A -down[#12FFFF]-> B : a
+A -up[#12FFFF]-> A : b
+A -down[#12FFFF]-> D : 1
+
+B -up[#FF12FF]-> B : a
+B -down[#FF12FF]-> C : b
+B -down[#FF12FF]-> D : 1
+
+C -up[#FFFF12]-> B : a
+C -up[#FFFF12]-> A : b
+C -down[#FFFF12]-> J : 1
+
+D -up[#12FF12]-> B : a
+D -down[#12FF12]-> E : b
+D -[#12FF12]-> D : 1
+
+E -down[#2412FF]-> H : a
+E -up[#2412FF]-> A : b
+E -up[#2412FF]-> D : 1
+
+F -down[#12FF24]-> H : a
+F -down[#12FF24]-> K : b
+F -down[#12FF24]-> J : 1
+
+G -down[#FF1224]-> I : a
+G -up[#FF1224]-> A : b
+G -down[#FF1224]-> D : 1
+
+H -[#FF468C]-> H : a
+H -down[#FF468C]-> M : b
+H -down[#FF468C]-> J : 1
+
+I -[#468CFF]-> I : a
+I -up[#468CFF]-> C : b
+I -up[#468CFF]-> D : 1
+
+J -up[#8CFF46]-> H : a
+J -down[#8CFF46]-> N : b
+J -[#8CFF46]-> J : 1
+
+K -down[#C86432]-> L : a
+K -down[#C86432]-> M : b
+K -up[#C86432]-> J : 1
+
+L -[#6432C8]-> L : a
+L -left[#6432C8]-> M : b
+L -up[#6432C8]-> J : 1
+
+M -up[#32C864]-> L : a
+M -up[#32C864]-> K : b
+M -up[#32C864]-> J : 1
+
+N -up[#912D64]-> L : a
+N -up[#912D64]-> K : b
+N -up[#912D64]-> J : 1 
+
+N -down-> [*]
+
+<style>
+stateDiagram {
+  arrow {
+    LineThickness 0.85
+  }
+}
+</style>
+@enduml
+```
+
+</details>
+
+![DFA](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/DFA.png)
+<sub style="align: center; text-align: center">Transformado, el NFA de la Fig.2 se representa como el siguiente DFA.</sub>
 
 ## **Implementación de una expresión regular equivalente**
 
