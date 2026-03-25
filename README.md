@@ -1,6 +1,6 @@
 **Evidencia Implementación de Análisis Léxico (Autómata y Expresión Regular)**
 
-<div id="centrado">
+<div style="align: center; text-align: center; margin: 0;">
 
 | All possible combinations of | Rules |
 | ----- | :---: |
@@ -97,12 +97,3 @@ A continuación el resultado de la ejecución del código:
 ![Resultado de ejecucuón del código](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/Resultados.png)
 
 ## **Análisis de complejidad**
-
-
-<style>
-#centrado {
-  align: center;
-  text-align: center;
-  margin: 0;
-}
-</style>
