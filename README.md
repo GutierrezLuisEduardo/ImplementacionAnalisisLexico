@@ -16,7 +16,9 @@ Y un conjunto de reglas, tal que cualquier combinación válida siempre termine 
 
 ## **Modelado del lenguaje**
 Previo a conseguir un _DFA_, se modeló un _NFA_ por la facilidad que confiere al momento de plasmar estados y transiciones entre estos.
-Esto implicó, en la primera versión de NFA, crear dos autómatas (uno para la ocurrencia de 'ab1'|'1ba' y otro para la terminación 'ba') que terminaron uniéndose en uno solo. Este proceso puede interpretarse como "concatenar" los lenguajes representados por cada NFA.
+Esto implicó, en la primera versión de NFA, crear dos autómatas (uno para la ocurrencia de 'ab1'|'1ba' y otro para la terminación 'ba') mismos que terminaron uniéndose en uno solo.
+
+Este proceso puede interpretarse como "concatenar" los lenguajes representados por cada NFA, pues primero corre un NFA y luego el otro (necesario, por la regla del sufijo 'ba').
 
 A continuación un _NFA_ que corresponde a las reglas del lenguaje, hecho con _plantUML_.
 
@@ -72,11 +74,16 @@ stateDiagram {
 
 <sub style="align: center; text-align: center">Fig.2 NFA que representa al menos una ocurrencia de ‘ab1’ o ‘1ba’ y terminación de ‘ba’ de una cadena</sub>
 
-Con el _NFA_ terminado, procedió derivar las transiciones y nuevos estados que constituyen al DFA equivalente. Para ello se utilizó la técnica de _construcción por subconjuntos_, que implicó en primera instancia identificar al estado inicial (el primero del NFA), seguido de esto, plasmar la relación del NFA en su tabla de transiciones, llevar a cabo un producto cruz entre sus estados, y finalmente deliberar cuáles serían los estados de aceptación (se definió como estado de aceptación a todo estado que incluyera al estado final del NFA).
+Con el _NFA_ terminado, procedió derivar las transiciones y nuevos estados que constituyen al DFA equivalente. Para ello se utilizó la técnica de _construcción por subconjuntos_.
+
+Bajo este método, se interpreta como un nuevo estado en el DFA a cada conjunto de conexiones suscitadas entre los estados del NFA a través de los símbolos del alfabeto. Esto abarca todas las posibilidades de interconexión y garantizar que se cumplan ambas reglas de manera determinista.
+
+En la práctica, esto implicó identificar al estado inicial (el primero del NFA), seguido de esto, plasmar la relación del NFA en su tabla de transiciones, llevar a cabo un producto cruz entre sus estados sobre los distintos caracteres del alfabeto, y finalmente deliberar cuáles serían los estados de aceptación (se definió como estado de aceptación a todo estado que incluyera al estado final del NFA).
+
+Con la definición de todo estado de aceptación, se mantiene la propiedad finita.
 
 ![Tablas de transiciones](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/Tablas%20de%20transiciones.png)
 <sub>Fig.3 Tablas de transiciones del NFA y del DFA</sub>
-
 
 A continuación, el diagrama del DFA que corresponde con las reglas del lenguaje y el NFA.
 
