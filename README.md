@@ -16,47 +16,55 @@ Y un conjunto de reglas, tal que cualquier combinación válida siempre termine 
 
 ## **Modelado del lenguaje**
 
-A continuación los *NFA* que representan las reglas del lenguaje mencionado, fueron hechos con *plantUML*, (he decidido modelar de esta manera por la facilidad que permiten estos autómatas) utilizando el siguiente código: 
+A continuación el *NFA* que representa las reglas del lenguaje mencionado, fue hecho con *plantUML*. Previo a conseguir un DFA, he decidido modelar un NFA puesto que es más sencillo de plasmar. A continuación, el código de PlantUML.
+
+<details>
+  <summary>Desplegar código</summary>
+
 ```PlantUML
 @startuml
+[*] --> q0
+left to right direction 
+scale 2048 width
 
-StateAB11BA --> q0
-StateAB11BA : Debe contener al menos una ocurrencia de 'ab1' o '1ba'
+skinparam nodesep 80
+skinparam ranksep 90
+
+note "NFA: Al menos una ocurrencia de 'ab1' o '1ba' y siempre fin en 'ab'" as nota
+
 
 ' Lee cualquier pregijo  
-q0 --> q0 : a  
-q0 --> q0 : b  
-q0 --> q0 : 1
+q0 --> q0 : a, b, 1
 
 ' Intento de detectar "ab1"
 q0 --> q1 : a  
 q1 --> q2 : b  
-q2 --> qf : 1
+q2 --> q5 : 1
 
 ' Intento de detectar "1ba"
 q0 --> q3 : 1  
 q3 --> q4 : b  
-q4 --> qf : a
+q4 --> q5 : a
 
 ' Encontró alguno  
-qf --> qf : a  
-qf --> qf : b  
-qf --> qf : 1
+q5 --> q5 : a, b, 1
 
-StateBA --> q24 
-StateBA : Debe terminar siempre con 'ba'
+q5 --> q6 : b
+q6 --> q6 : a
 
-' Cualquier prefijo
-q24 --> q24 : a  
-q24 --> q24 : b  
-q24 --> q24 : 1
+q6 --> [*]
 
-' Terminación en 'ba'
-q24 --> q25 : b  
-q25 --> q25 : a
-
+<style>
+stateDiagram {
+  arrow {
+    LineThickness 0.85
+  }
+}
+</style>
 @enduml
 ```
+
+</details>
 
 ![NFA's](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/NFA%20-%20Diagram.png)
 
