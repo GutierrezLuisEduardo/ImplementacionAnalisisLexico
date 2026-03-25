@@ -1,11 +1,15 @@
 **Evidencia Implementación de Análisis Léxico (Autómata y Expresión Regular)**
 
+<div id="centrado">
+
 | All possible combinations of | Rules |
 | ----- | :---: |
 | ab1 | must have ab1 or 1ba |
 |  | and must end with ba |
 
 Fig.1 \- El lenguaje y el conjunto de reglas que lo conforman
+
+</div>
 
 ## **Descripción del lenguaje**
 
@@ -70,6 +74,8 @@ stateDiagram {
 
 <sub>Fig.2 NFA que representa al menos una ocurrencias de ‘ab1’ o ‘1ba’ y terminación de ‘ba’ de una cadena</sub>
 
+
+
 ## **Implementación de una expresión regular equivalente**
 
 La expresión estuvo pensada para detectar saltos de línea y evaluar la línea completa (por ello los anchors de ***'^'*** y ***'$'*** para inicio y final de línea, respectivamente). Después el grupo de comprobación de *positive-lookahead* que asegura la presencia de 0 o más caracteres previo al grupo de captura que impone la restricción de lenguaje de una mínima ocurrencia de '*ab1*' o '*1ba*'.
@@ -91,3 +97,12 @@ A continuación el resultado de la ejecución del código:
 ![Resultado de ejecucuón del código](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/Resultados.png)
 
 ## **Análisis de complejidad**
+
+
+<style>
+#centrado {
+  align: center;
+  text-align: center;
+  margin: 0;
+}
+</style>
