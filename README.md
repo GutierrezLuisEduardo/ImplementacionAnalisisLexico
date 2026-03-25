@@ -15,7 +15,10 @@ Se tiene un lenguaje con alfabeto:
 Y un conjunto de reglas, tal que cualquier combinación válida siempre termine con ‘*ba*’ y contenga al menos una concurrencia de ‘*ab1*’ o ‘*1ba*’.
 
 ## **Modelado del lenguaje**
-Previo a conseguir un _DFA_, se modeló un _NFA_ por la facilidad que confiere al momento de plasmar estados y transiciones entre estos. A continuación un _NFA_ que corresponde a las reglas del lenguaje, hecho con _plantUML_.
+Previo a conseguir un _DFA_, se modeló un _NFA_ por la facilidad que confiere al momento de plasmar estados y transiciones entre estos.
+Esto implicó, en la primera versión de NFA, crear dos autómatas (uno para la ocurrencia de 'ab1'|'1ba' y otro para la terminación 'ba') que terminaron uniéndose en uno solo. Este proceso puede interpretarse como "concatenar" los lenguajes representados por cada NFA.
+
+A continuación un _NFA_ que corresponde a las reglas del lenguaje, hecho con _plantUML_.
 
 <details>
   <summary>Desplegar código de PlantUML</summary>
@@ -69,9 +72,13 @@ stateDiagram {
 
 <sub style="align: center; text-align: center">Fig.2 NFA que representa al menos una ocurrencia de ‘ab1’ o ‘1ba’ y terminación de ‘ba’ de una cadena</sub>
 
-Con el _NFA_ terminado, procedió derivar (partiendo de su tabla de transiciones) las transiciones y nuevos estados que constituyen al DFA equivalente. Para ello se utilizó la técnica      
+Con el _NFA_ terminado, procedió derivar las transiciones y nuevos estados que constituyen al DFA equivalente. Para ello se utilizó la técnica de _construcción por subconjuntos_, que implicó en primera instancia identificar al estado inicial (el primero del NFA), seguido de esto, plasmar la relación del NFA en su tabla de transiciones, llevar a cabo un producto cruz entre sus estados, y finalmente deliberar cuáles serían los estados de aceptación (se definió como estado de aceptación a todo estado que incluyera al estado final del NFA).
 
-A continuación, el diagrama del DFA, correspondiente con las reglas del lenguaje y el NFA.
+![Tablas de transiciones](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/Tablas%20de%20transiciones.png)
+<sub>Fig.3 Tablas de transiciones del NFA y del DFA</sub>
+
+
+A continuación, el diagrama del DFA que corresponde con las reglas del lenguaje y el NFA.
 
 <details>
   <summary>Desplegar código de PlantUML</summary>
@@ -173,7 +180,7 @@ stateDiagram {
 </details>
 
 ![DFA](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/DFA.png)
-<sub style="align: center; text-align: center">Transformado, el NFA de la Fig.2 se representa como el siguiente DFA.</sub>
+<sub style="align: center; text-align: center">Fig.3 Transformado, el NFA de la Fig.2 se representa como el siguiente DFA.</sub>
 
 ## **Implementación de una expresión regular equivalente**
 
