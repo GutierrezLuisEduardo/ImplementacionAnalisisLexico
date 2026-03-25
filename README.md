@@ -191,11 +191,13 @@ stateDiagram {
 
 ## **Implementación de una expresión regular equivalente**
 
-La expresión estuvo pensada para detectar saltos de línea y evaluar la línea completa (por ello los anchors de ***'^'*** y ***'$'*** para inicio y final de línea, respectivamente). Después el grupo de comprobación de *positive-lookahead* que asegura la presencia de 0 o más caracteres previo al grupo de captura que impone la restricción de lenguaje de una mínima ocurrencia de '*ab1*' o '*1ba*'.
+Patrón: `^(?=.*(ab1|1ba))[ab1]*ba$`
 
-Los caracteres previos y posteriores al grupo de captura sólo pueden adquirir valores constituidos dentro del alfabeto del lenguaje (denotado como ‘\[*abc*\]’) y hacer esto entre una cantidad de cero e ilimitada de veces (‘*\**’).
+La expresión estuvo pensada para evaluar la línea completa (por ello los anchors de ***'^'*** y ***'$'*** para inicio y final de línea, respectivamente). Después, el grupo de comprobación de *positive-lookahead* contempla la presencia de 0 o más caracteres previo al grupo de captura, que impone la restricción de lenguaje de una mínima ocurrencia de '*ab1*' o '*1ba*'.
 
-Por último sólo se añade de manera explícita ‘*ba*’, para cumplir con la restricción de validez en que toda cadena válida debe terminar con ‘*ba*’. 
+Los caracteres previos y posteriores al grupo de captura sólo pueden ser constituidas por caracteres que pertenezcan al alfabeto del lenguaje (denotado como `[ab1*]`) y hacer esto entre una cantidad de cero e ilimitada de veces (`*`).
+
+Por último, para satisfacer el sufijo 'ba' requerido para toda cadena válida, elemento de ∑* (correspondiente al lenguaje), se denota `ba` al final de la expresión. 
 
 Conformada la expresión regular, se incluyó dentro de un código (*regex.py*) que contiene una función que analiza una cadena dada y la valida respecto al patrón (que comprende las reglas del lenguaje), determinando así la correspondencia entre dada cadena y el lenguaje.
 
@@ -203,7 +205,7 @@ Estas pruebas de validez están incluidas dentro del archivo *tests.py*, mismo q
 
 ## **Resultados de implementación**
 
-El arreglo con las cadenas de prueba contiene 20 cadenas, las 13 primeras son erróneas (era lo planeado) y las últimas 7 son válidas.
+Un arreglo dentro del archivo 'test.py' contiene 20 cadenas de prueba, las 13 primeras fueron pensadas para resultar inválidas ante el patrón y las últimas 7 cadenas pensadas para resultar válidas.
 
 A continuación el resultado de la ejecución del código:
 
