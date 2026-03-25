@@ -82,8 +82,55 @@ En la práctica, esto implicó identificar al estado inicial (el primero del NFA
 
 Con la definición de todo estado de aceptación, se mantiene la propiedad finita.
 
-![Tablas de transiciones](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/Tablas%20de%20transiciones.png)
-<sub>Fig.3 Tablas de transiciones del NFA y del DFA</sub>
+| Estado | a | b | 1 |
+| :---: | ----- | ----- | ----- |
+| **q0** | {q0, q1} | {q0} | {q0, q3} |
+| **q1** |  | {q2} |  |
+| **q2** |  |  | {q5} |
+| **q3** |  | {q4} |  |
+| **q4** | {q5} |  |  |
+| **q5** | {q5} | {q5,q6} | {q5} |
+| **q6** | {q6} |  |  |
+
+<sub>Fig.3 Tabla de transiciones del NFA</sub>
+
+| Símbolo | Estados | a | b | 1 |
+| :---: | :---: | :---: | :---: | :---: |
+| **A** | **q0** | {q0, q1} | {q0} | {q0, q3} |
+| **B** | **{q0, q1}** | {q0, q1} | {q0,q2} | {q0, q3} |
+| **C** | **{q0,q2}** | {q0, q1} | {q0} | {q0, q3, q5} |
+| **D** | **{q0, q3}** | {q0, q1} | {q0, q4} | {q0, q3} |
+| **E** | **{q0, q4}** | {q0, q1, q5} | {q0} | {q0, q3} |
+| **F** | **{q0, q5}** | {q0, q1, q5} | {q0, q5, q6} | {q0, q3, q5} |
+| **G** | **{q0, q6}** | {q0, q1, q6} | {q0} | {q0, q3} |
+| **H** | **{q0, q1, q5}** | {q0, q1, q5} | {q0, q2, q5, q6} | {q0, q3, q5} |
+| **I** | **{q0, q1, q6}** | {q0, q1, q6} | {q0,q2} | {q0, q3} |
+| **J** | **{q0, q3, q5}** | {q0, q1, q5} | {q0, q4, q5, q6} | {q0, q3, q5} |
+| **K** | **{q0, q5, q6}** | {q0, q1, q5, q6} | {q0, q2, q5, q6} | {q0, q3, q5} |
+| **L** | **{q0, q1, q5, q6}** | {q0, q1, q5, q6} | {q0, q2, q5, q6} | {q0, q3, q5} |
+| **M** | **{q0, q2, q5, q6}** | {q0, q1, q5, q6} | {q0, q5, q6} | {q0, q3, q5} |
+| **N** | **{q0, q4, q5, q6}** | {q0, q1, q5, q6} | {q0, q5, q6} | {q0, q3, q5} |
+
+<sub>Fig.4 Tabla de transiciones del DFA</sub>
+
+|  | a | b | 1 |
+| ----- | :---: | :---: | :---: |
+| **A** | B | A | D |
+| **B** | B | C | D |
+| **C** | B | A | J |
+| **D** | B | E | D |
+| **E** | H | A | D |
+| **F** | H | K | J |
+| **G** | I | A | D |
+| **H** | H | M | J |
+| **I** | I | C | D |
+| **J** | H | N | J |
+| **K** | L | M | J |
+| **L** | L | M | J |
+| **M** | L | K | J |
+| **N** | L | K | J |
+
+<sub>Fig.5 Tabla de adyacencia del DFA</sub>
 
 A continuación, el diagrama del DFA que corresponde con las reglas del lenguaje y el NFA.
 
