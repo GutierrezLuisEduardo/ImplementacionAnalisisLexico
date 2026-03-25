@@ -1,15 +1,11 @@
 **Evidencia Implementación de Análisis Léxico (Autómata y Expresión Regular)**
 
-<div style="align: center; text-align: center; margin: 0;">
-
 | All possible combinations of | Rules |
 | ----- | :---: |
-| ab1 | must have ab1 or 1ba |
-|  | and must end with ba |
+| ab1 | al menos una ocurrencia de 'ab1' or '1ba' |
+|  | terminación 'ba' |
 
-Fig.1 \- El lenguaje y el conjunto de reglas que lo conforman
-
-</div>
+<sub>Fig.1 El lenguaje y el conjunto de reglas que lo conforman</sub>
 
 ## **Descripción del lenguaje**
 
