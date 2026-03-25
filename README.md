@@ -66,9 +66,9 @@ stateDiagram {
 
 </details>
 
-![NFA's](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/NFA%20-%20Diagram.png)
+![NFA](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/NFA.png)
 
-Fig.2 Dos NFA: aquel que representa ocurrencias de ‘ab1’ y ‘1ba’ (izquierda), y terminación de ‘ba’ (derecha)
+<sub>Fig.2 NFA que representa al menos una ocurrencias de ‘ab1’ o ‘1ba’ y terminación de ‘ba’ de una cadena</sub>
 
 ## **Implementación de una expresión regular equivalente**
 
