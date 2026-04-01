@@ -19,6 +19,7 @@ Previo a conseguir un _DFA_, se modeló un _NFA_ por la facilidad que confiere a
 Esto implicó, en la primera versión de NFA, crear dos autómatas (uno para la ocurrencia de 'ab1'|'1ba' y otro para la terminación 'ba') mismos que terminaron uniéndose en uno solo.
 
 ![Dos NFA que terminaron uniéndose](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/NFA%20-%20Diagram.png)
+
 <sub style="align: center; text-align: center">Fig.2.1 Dos NFA que representan, cada uno, una regla del lenguaje. Por la naturaleza de la gramática del lenguaje, del estado final del 1er NFA y del estado inicial del 2do NFA, es que pudieron unirse de manera simple.</sub>
 
 Este proceso puede interpretarse como concatenar los lenguajes representados por cada NFA , pues primero corre un NFA y luego el otro esta operación entre lenguajes es necesaria para cumplir con el sufijo 'ba'. (Sudkamp, 2006)
