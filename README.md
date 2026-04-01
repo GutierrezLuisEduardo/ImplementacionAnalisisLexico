@@ -18,6 +18,8 @@ Y un conjunto de reglas, tal que cualquier combinación válida siempre termine 
 Previo a conseguir un _DFA_, se modeló un _NFA_ por la facilidad que confiere al momento de plasmar estados y transiciones entre estos.
 Esto implicó, en la primera versión de NFA, crear dos autómatas (uno para la ocurrencia de 'ab1'|'1ba' y otro para la terminación 'ba') mismos que terminaron uniéndose en uno solo.
 
+![Dos NFA que terminaron uniéndose](https://github.com/GutierrezLuisEduardo/ImplementacionAnalisisLexico/blob/main/Images/NFA%20-%20Diagram.png)
+
 Este proceso puede interpretarse como concatenar los lenguajes representados por cada NFA , pues primero corre un NFA y luego el otro esta operación entre lenguajes es necesaria para cumplir con el sufijo 'ba'. (Sudkamp, 2006)
 
 A continuación un _NFA_ que corresponde a las reglas del lenguaje, hecho con _plantUML_.
