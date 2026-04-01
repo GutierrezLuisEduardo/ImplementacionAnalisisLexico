@@ -260,6 +260,10 @@ A continuación el resultado de la ejecución del código:
 
 ## **Análisis de complejidad**
 
+La complejidad implícita puede describirse como lineal `O(n)` para toda cadena `ω` procesada por una "máquina de estado finito" si se quiere ver así al DFA modelado (también pudiérase interpretar de esta manera a la expresión regular planteada). 
+
+Esto se debe a que la iteración sobre cada uno de los caracteres que conforman a la cadena, derivará en un cambio de estado por cada carácter, y este cambio de estado se atiene directamente a la función transición `δ=Q×Σ→Q`, que desembarca en uno de los estados definidos para el DFA. 
+
 ## **Referencias**
 Sudkamp, T. A. (2006). Languages and Machines: An Introduction to the Theory of Computer Science. Addison-Wesley Longman.
 
