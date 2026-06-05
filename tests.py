@@ -1,37 +1,47 @@
-from regexp import *
+"""
+Author: Luis Eduardo Gutiérrez Chavarría
+Date: 04/06/26
+Project: Evidencia Implementación de Análisis Léxico (Expresión Regular)
+Purpose: Implementar una expresión regular equivalente al autómata.
+"""
+
+import re
+
+def validar(cadena:str) -> bool:
+    "Valida la cadena contra el patrón regex."
+
+    if cadena: 
+        patron = r'^(?=.*(ab1|1ba))[ab1]*ba$'
+
+        if re.match(patron, cadena):
+            return True
+
+    return False
+
 
 cadenas = [
-    # Inválidas (Primeras 13)
-    "ab1",
-    "1baLuis",
-    "ab1Luis",
-    "Luisab1",
-    "aa1",
-    "ba1",
-    "aabbb1",
-    "ab1bab",
-    "baba1baa",
-    "1baLuisba",
-    "1baLuisba",
-    "Luis1ba",
-    "Luisab1ba",
-
-    # Válidas (últimas 7)
+    # Sólo opera con caracteres permitidos
+    "1baxyzba",
+    # Inválidas
+    "aaabba",
+    "aaa1b",
+    "1baaaaa",
+    "abba",
+    "1abb1bba",
+    # Válidas
+    "aaab1ba",
+    "aaa1ba",
     "1ba",
-    "ab1ba",
-    "1baabababbbbabaaabaaba",
-    "ab1bbbabbaabaaababababa",
-    "aaaaaaaaaaa1ba",
-    "bbbbbbbbbbbab1ba",
-    "ab1aabbbbab1aabababba"
+    "ab11ba",
+    "1baab1ba"
 ]
 
-count = 0
 for s in cadenas:
-    status = validar(s)
-    if status == "Válida":
-        count += 1
-    print(f'La cadena "{s}" es {status} respecto al lenguaje.')
+    resultado = validar(s)
 
-print(count, f" de {len(cadenas)} cadenas han sido válidas respecto\
- al lenguaje")
+    if resultado == False:
+        validez = "Inválida"
+    else:
+        validez = "Válida"
+
+    print(f"'{s}' es {validez} respecto al lenguaje\n")
